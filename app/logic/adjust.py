@@ -1,7 +1,7 @@
 import logging
 from sqlalchemy.orm import Session
 from typing import List
-from app.database import crud, models, schemas
+from app.database import crud
 from app.models.input_models import MeasuredTemperature
 
 

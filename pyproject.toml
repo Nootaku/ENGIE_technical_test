@@ -1,0 +1,5 @@
+# The documentation of the project setup can be found at:
+# https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"

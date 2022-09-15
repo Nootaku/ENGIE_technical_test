@@ -2,13 +2,13 @@ from fastapi import Depends, FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from typing import List
-from app.database import crud, models, schemas
-from app.database.database import SessionLocal, engine
+from app.database.db_init import create_session
 from app.models.input_models import MeasuredTemperature
 from app.models.output_models import AdjustedTemperature
 from app.logic.adjust import adjust_temperature
 
 app = FastAPI()
+_DB_SESSION = create_session() # db_url : "sqlite:///app/database/database.db"
 
 # DB Dependency
 def get_db():
@@ -18,7 +18,7 @@ def get_db():
     When the API call is over, this function will close the connection to the
     DB.
     """
-    db = SessionLocal()
+    db = _DB_SESSION()
     try:
         yield db
     finally:
@@ -74,4 +74,4 @@ if __name__ == '__main__':
     import uvicorn
     # Default host = '127.0.0.1'
     # App name can also be `api`, but a string is required for `reload=True`
-    uvicorn.run('app.main:app', port=5000, reload=True)
+    uvicorn.run('app.main:app', port=5000)

@@ -64,11 +64,77 @@ Below is a sample API request with the expected response (HTTP 200).<br/>In the 
 
 
 
-## Solution proposée
+## Installation and usage
 
-### Base de Donnée
+### Installation
 
-Tout d'abord, nous utiliserons SQLite comme base de donnée car il s'agit d'un fichier unique qui est facile à partager. De plus, Python supporte ce type de fichier par défaut.
+This installation has been written under the assumption that you have **Python 3.10** and **PIP** installed on your machine or in your virtual environment.
+
+```bash
+# Clone repo
+git clone https://foo/bar
+
+# Install dependencies
+cd engie_2
+pip install -r requirements.txt
+```
+
+
+
+### Usage
+
+To run the API you have 2 options:
+
+```bash
+# Option 1: Uvicorn
+uvicorn app.main:app
+
+# Option 2: Python
+python app/main.py
+```
+
+
+
+### Testing
+
+The setup of the testing environment is following the good practices recommended by PyTest: [see documentation](https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html).
+
+```bash
+pip install -e .
+pytest
+```
+
+
+
+## Proposed solution
+
+### Structure
+
+```bash
+.
+├── database
+│   ├── crud.py
+│   ├── database.db
+│   ├── db_init.py
+│   └── schemas.py
+├── logic
+│   ├── adjust.py
+├── main.py
+└── models
+    ├── db_models.py
+    ├── input_models.py
+    └── output_models.py
+```
+
+The API instance is created in `main.py`.  The `database` directory contains all the logic relative to the connection with the database. The `logic` directory contains the business logic. Finally the `models` directory contains all the models that are used as input for both the endpoints and the database.
+
+### Database
+
+We have decided to use an SQLite database since it is a unique file that is easy to share. Moreover, Python has native support for this type of database.
+
+#### Connection
+
+The main connection to the database is done in `db_init` 
 
 
 

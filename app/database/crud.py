@@ -4,7 +4,8 @@ This file contains reusable function to interact with the data in the database.
 """
 
 from sqlalchemy.orm import Session
-from . import models, schemas
+from app.models import db_models as models
+from . import schemas
 
 
 def get_location(db: Session, location_id: int):
