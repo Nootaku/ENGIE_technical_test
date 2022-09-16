@@ -1,6 +1,6 @@
 # Engie Technical Test
 
-[![Author](https://img.shields.io/badge/Developer-Maxime_Wattez-informational?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/Nootaku)<br/>![Vue](https://img.shields.io/badge/Last_Update-Sept_15,_2022-lightgrey?style=for-the-badge)<br/>![Vue](https://img.shields.io/badge/Version-0.0.1-yellow?style=for-the-badge&logo=Git)
+[![Author](https://img.shields.io/badge/Developer-Maxime_Wattez-informational?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/Nootaku)<br/>![Vue](https://img.shields.io/badge/Last_Update-Sept_15,_2022-lightgrey?style=for-the-badge)<br/>![Vue](https://img.shields.io/badge/Version-1.0.0-yellow?style=for-the-badge&logo=Git)
 
 [![Vue](https://img.shields.io/badge/Framework-FastAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=#009688)](https://fastapi.tiangolo.com/)
 
