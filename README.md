@@ -83,14 +83,10 @@ pip install -r requirements.txt
 
 ### Usage
 
-To run the API you have 2 options:
+To run the API :
 
 ```bash
-# Option 1: Uvicorn
 uvicorn app.main:app
-
-# Option 2: Python
-python app/main.py
 ```
 
 
@@ -101,7 +97,7 @@ The setup of the testing environment is following the good practices recommended
 
 ```bash
 pip install -e .
-pytest
+python -m pytest
 ```
 
 
@@ -128,30 +124,22 @@ pytest
 
 The API instance is created in `main.py`.  The `database` directory contains all the logic relative to the connection with the database. The `logic` directory contains the business logic. Finally the `models` directory contains all the models that are used as input for both the endpoints and the database.
 
+The objective of this structure is to have a clear division between the building blocks of our application. We follow a MVC architecture where the models are kept in the `model` directory, the views in the `main.py` file and the controllers in the `database` directory.
+
+Please note that, provided a more complex application, we could also add a `endpoints` directory and use FastAPI router objects to handle requests. This would simplify the readability of the the API endpoints.
+
+The `logic` folder contains the business logic of the API calls. This allows us to have a clear separation between the incoming calls (including input and output data-type control) and the work done on the data. In turn, when testing the API calls, there is less need for mocking and less logic inside the tests which is in line with the good practices.
+
 ### Database
 
 We have decided to use an SQLite database since it is a unique file that is easy to share. Moreover, Python has native support for this type of database.
 
 #### Connection
 
-The main connection to the database is done in `db_init` 
+The main connection to the database is done in `db_init`. We then use a dependency in the API to create a connection and close the connection for every call to the API (see `main.py`)
 
 #### Tables
 
 We have two tables: `locations` and `measures` as per requested by guidelines.
 
 We have decided to save the temperature measurements in **integer** format. This choice is supported by the fact that *sqlite* and *pysqlite* do NOT support Decimal objects natively. A conversion must take place but rounding errors might occur.
-
-
-
-
-
-
-
-
-
-https://atom.io/packages/linter
-
-https://fastapi.tiangolo.com/tutorial/first-steps/
-
-https://pydantic-docs.helpmanual.io/usage/models/
