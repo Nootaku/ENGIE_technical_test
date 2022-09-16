@@ -61,6 +61,7 @@ def update_measure_by_id(
     new_measure: int
 ):
     """Update measure temperature by ID."""
+    assert isinstance(new_measure, int)
     db_measure = db.query(models.Measure).filter(
         models.Measure.id == measure.id)
     db_measure.update({"temperature": new_measure}, synchronize_session=False)

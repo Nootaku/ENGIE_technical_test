@@ -16,7 +16,7 @@ from pydantic import BaseModel
 
 
 class MeasureBase(BaseModel):
-    temperature: int
+    temperature: float
 
 
 class MeasureCreate(MeasureBase):

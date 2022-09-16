@@ -12,7 +12,7 @@ def test_client():
     return client
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def test_db():
     _DB_URL = "sqlite://"
 

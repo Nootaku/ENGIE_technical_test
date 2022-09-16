@@ -136,6 +136,12 @@ We have decided to use an SQLite database since it is a unique file that is easy
 
 The main connection to the database is done in `db_init` 
 
+#### Tables
+
+We have two tables: `locations` and `measures` as per requested by guidelines.
+
+We have decided to save the temperature measurements in **integer** format. This choice is supported by the fact that *sqlite* and *pysqlite* do NOT support Decimal objects natively. A conversion must take place but rounding errors might occur.
+
 
 
 
